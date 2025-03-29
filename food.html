@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/food.css">
+    <title>Food List</title>
+</head>
+<body>
+
+
+
+
+    <h2>Restaurant QR Code</h2>
+    
+    <img id="qrCode" alt="QR Code for Restaurant Menu">
+    <script type="module">
+        import { auth } from "./firebase-config.js";
+        import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-auth.js";
+    
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                const restaurantId = user.uid; // Get restaurant's unique ID 
+                const menuUrl = `${window.location.origin}/restaurant-menu.html?restaurant=${restaurantId}`;
+                document.getElementById("qrCode").src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(menuUrl)}`;
+            } else {
+                window.location.href = "login.html"; // Redirect if not logged in
+            }
+        });
+    </script>
+    
+
+    <p>Welcome, <span id="restaurantName"></span></p>
+    <!-- <input type="text" id="searchInput" placeholder="Search food..." style="padding: 8px; width: 100%; margin-bottom: 10px;"> -->
+    <a href="admin.html">⬅️ Back to Dashboard</a>
+    <button onclick="logout()">🚪 Logout</button>
+
+    <select id="filterCategory">
+        <option value="all">All Categories</option>
+        <option value="Fast Food">Fast Food</option>
+        <option value="Beverage">Beverage</option>
+    </select>
+
+    <div id="foodList"></div>
+
+    
+    <script type="module" src="food.js"></script>
+</body>
+</html>

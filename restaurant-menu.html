@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Menu</title>
+    <link rel="stylesheet" href="css/menu.css">
+    <script type="module" src="menu-script.js" defer></script>
+   
+</head>
+<body>
+    <div id="restaurantDetails">
+        <!-- Restaurant Name & Address Will Appear Here -->
+    </div>
+
+    <h2>Food Menu</h2>
+    <input type="text" id="searchInput" placeholder="Search food...">
+    <select id="filterCategory">
+        <option value="all">All Categories</option>
+        <option value="starter">Starter</option>
+        <option value="main-course">Main Course</option>
+        <option value="dessert">Dessert</option>
+    </select>
+    
+    <div class="food-container" id="foodList"></div>
+</body>
+</html>

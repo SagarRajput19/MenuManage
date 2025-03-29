@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+    <p>Welcome, <span id="restaurantName"></span></p>
+    
+    <form id="foodForm">
+        <input type="text" id="foodName" placeholder="Food Name" required>
+        <input type="text" id="imageUrl" placeholder="Image URL" required>
+        <input type="text" id="category" placeholder="Category" required>
+        <input type="number" id="price" placeholder="Price" required>
+        <textarea id="description" placeholder="Description" required></textarea>
+        <button type="submit">Add Food</button>
+    </form>
+
+    <a href="food.html">📄 View Food Items</a>
+    <button id="logoutButton">🚪 Logout</button>
+
+    <script type="module" src="admin.js"></script>
+</body>
+</html>
